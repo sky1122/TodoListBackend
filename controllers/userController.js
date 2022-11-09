@@ -117,7 +117,7 @@ async function updateUserByIdQuery(name, user) {
                     assignedUser: user.id,
                     assignedUserName: name
                 }, 
-                {new: false}
+                {new: true}
             )
         }
     }
@@ -179,7 +179,7 @@ async function deleteUserByIdNoQuery(user) {
                     assignedUser: "",
                     assignedUserName: "unassigned"
                 }, 
-                {new: false}
+                {new: true}
             )
         }    
     }

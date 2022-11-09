@@ -114,11 +114,15 @@ def main(argv):
         deadline = (mktime(date.today().timetuple()) + randint(86400,864000)) * 1000
         description = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
         params = urllib.parse.urlencode({'name': choice(taskNames), 'deadline': deadline, 'assignedUserName': assignedUserName, 'assignedUser': assignedUserID, 'completed': str(completed).lower(), 'description': description})
-
+        print(params)
+        print('\n')
         # POST the task
         conn.request("POST", "/api/tasks", params, headers)
         response = conn.getresponse()
+
         data = response.read()
+        print(data)
+        print('\n')
         d = json.loads(data)
 
         taskID = str(d['data']['_id'])
