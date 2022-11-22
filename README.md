@@ -1,14 +1,13 @@
-# MP #3: APIed Piper
-### Due: November 11th, 2022, 11.59PM CDT
+# APIed Piper
+
 
 ## Table of Contents
-1. [Assignment](#assignment)
-2. [Getting Started](#getting-started)
-3. [Tips](#tips)
-4. [Rules](#rules)
-5. [Submission Details](#submission-details)
+- [APIed Piper](#apied-piper)
+  - [Table of Contents](#table-of-contents)
+  - [1. overall](#1-overall)
+      - [Task](#task)
 
-## 1. Assignment
+## 1. overall
 
 **The Basic Goal** : Create an API for a task management / todo list.
 
@@ -81,7 +80,6 @@ Here is the Task Schema:
 
 **We assume that each task can be assigned only to one user.**
 
-#### Requirements
 
 1. Your database should be on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). It should contain at least 20 users and 100 tasks (about half of which should be completed) (**We provided scripts for you in the database_scripts folder. Read below how to use these scripts**). ***NOTE: Please add "Allow access from anywhere" to your cluster in the IP Whitelist"*** (This is usually not a good practice in real use. Here is just easier for us to grade your mp) 
 
@@ -109,59 +107,4 @@ Here is the Task Schema:
     - Multiple users with the same email cannot exist.
     - Tasks cannot be created (or updated) without a name or a deadline. All other fields that the user did not specify should be set to reasonable values.
 
-## 2. Getting Started
-1. Clone the repository:
-`git clone https://gitlab.com/uiuc-web-programming/mp3.git mp3`, then `cd mp3`
-2. Install dependencies:
-`npm install`
-3. Start the dev server:
-`npm start` or 
-`nodemon --exec node server.js` to automatically restart the server on save.
 
-
-## 3. Tips
-  - Start early!
-  - Please DO NOT delete the `.gitignore file` from the project, you will lose 1% point 
-  - Check out [Postman](https://www.getpostman.com/postman) to your API
-  - Free MongoDB server - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-  - You don't need to host anywhere, we will check out your code locally, be sure to run your MongoDB server all the time
-  - The example queries above will cover 70% grade, and another 30% of corner test cases will not be released.
-
-### How to use the DB Scripts
-
-Assuming your API is fully operational (you need to have implement /users and /tasks endpoints for your API), these scripts (in database_scripts/ folder) will populate and clear your database as needed. 
-***NOTE: Use Python3 to run following codes*** 
-
-**dbClean.py**
-
-`python3 dbClean.py -u "localhost" -p 4000 `
-
-You can change "localhost" and the port number to match your own running api server. Leave the quotation marks. DO NOT include "/api/" or "/user" etc.
-
-**dbFill.py**
-
-`python3 dbFill.py -u "localhost" -p 4000 -n 20 -t 100`
-
-Once again, change the url and port number to match your own running api server. You can populate your database with X users and Y tasks (in the above case, 20 and 100 respectively). This will randomly generate users with realistic names and emails as well as realistic tasks. Tasks will have a 50% chance of being completed and a 60% chance of being assigned. If num_tasks >> num_users, users will likely have multiple tasks assigned to them. A task will have one assigned user at most.
-
-**task.txt**
-
-Contains sample task descriptions. Edit if you want, I don't care.  
-
-## Rules
-1. This is an individual assignment. No collaboration is permitted.
-2. It is not permitted to copy/paste code that is not your own. You are, however, free to look at different code sources for inspiration and clarity. All sources (code as well as reading material) that you reference to complete this assignment must be declared in the submission.
-3. If you think something you’re doing might not be acceptable, please ask on Piazza.
-
-
-## Submission Details
-Here's what you will need to submit:
-1. Create a private repository on GitLab. Make sure "Initialize this repository with a README" is not checked.
-2. Change the remote url for the mp3 directory to the url of the new private repository you created.
-```
-git remote rename origin old-origin
-git remote add origin git@gitlab.com:<your-gitlab-username>/mp3.git
-```
-3. Commit and push your local changes to this new repository.
-4. Invite `uiucwp` as a collaborator. This should be as a **reporter**, not as a *guest*, otherwise we can't see your code.
-5. Fill out and submit the form [Submission Form](https://forms.gle/ARkKhDApLCZc6Kgi6)
